@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Drill Down Report</title>
+</head>
+<body>
+<style>
+tbody tr:nth-child(odd) {
+   background-color: #ccc;
+}
+</style>
+
+<h2>Drill Down Report.</h2>
+
+{% if manufacturer %}
+ <h2> {{ manufacturer }} </h2>
+{% endif %}
+
+
+<div style="overflow-x: auto;">
+
+    <table border="1" class="no-wrap">
+
+        <tr>
+            <th>Appliance Type</th>
+            <th>Count</th>
+
+        </tr>
+        {% if table_to_create %}
+
+        {% for table in table_to_create %}
+        <tr>
+            <td>{{ table[0] }}</td>
+            <td>{{ table[1] }}</td>
+
+        </tr>
+
+    </table>
+
+</div>
+{% endfor %}
+{% endif %}
+<br>
+<div>
+    <input type="button" onclick="window.location.href=' {{ url_for('top_manuf') }}';" value="Back">
+</div>
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <img src="../static/images/add_app.jpg" alt="Girl in a jacket" width="535" height="60">
+<head>
+  
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+
+    }
+
+    fieldset {
+      padding: 0;
+    }
+
+    .options {
+      height: 30px;
+      -moz-appearance: none;
+      /* Firefox */
+      -webkit-appearance: none;
+      /* Safari and Chrome */
+      appearance: none;
+      padding-right: 1.25EM;
+      padding-left: 0.25EM;
+      border-radius: 10px;
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' height='10px' width='15px'%3E%3Ctext x='0' y='11' fill='lightblue'%3E%E2%96%BE%3C/text%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: 1.5EM 1EM;
+      background-position: right center;
+      margin-bottom: 20px;
+    }
+
+
+    .options-container
+    {
+      display: none;
+    }
+  </style>
+</head>
+
+
+
+<body>
+  <main>
+    <h3>Add appliance</h3>
+    <p>Please provide the details for the appliance</p>
+    <form method="POST">
+
+      <fieldset style="border:none">
+        
+        <label for="appliance-type">Appliance type:</label>
+        <select onchange="show(value)" class="options" name="appliance-type" id="appliance-type">
+          <option value="" selected disabled>Choose appliance</option>
+          <option value="Refrigerator/freezer">Refrigerator/freezer</option>
+          <option value="Cooker">Cooker</option>
+          <option value="Washer">Washer</option>
+          <option value="Dryer">Dryer</option>
+          <option value="TV">TV</option>
+        </select><br>
+
+        <label for="manufacturer">Manufacturer: &#160;</label>
+        <select class="options" name="manufacturer" id="manufacturer">
+          {% for manu in manufs %}
+            <option value="{{manu[0]}}">{{manu[0]}}</option>
+          {% endfor %}
+        </select>
+
+        <br>
+
+        <label for="model-name">Model Name:</label>
+        <input type="text" name="model-name" id="model-name">
+        <br>
+        <br>
+        <!-- style="display:none;"  -->
+
+        <div class="options-container" id="TV">
+          <label for="">Display type:</label>
+          <select class="option" name="display-type" id="display-type">
+            <option value="tube">tube</option>
+            <option value="DLP">DLP</option>
+            <option value="plasma">plasma</option>
+            <option value="LCD">LCD</option>
+            <option value="LED">LED</option>
+          </select>
+          <br><br>
+          <label for="">Display size (inches) :</label>
+          <input type="text" name="display-size" id="display-size">
+          <br><br>
+          <label for="">Maximum resolution:</label>
+          <select class="option" name="max-resolution" id="max-resolution">
+            <option value="480i">480i</option>
+            <option value="576i">576i</option>
+            <option value="720p">720p</option>
+            <option value="1080i">1080i</option>
+            <option value="1080p">1080p</option>
+            <option value="1440p">1440p</option>
+            <option value="2160p (4k)">2160p (4k)</option>
+            <option value="4320p (8k)">4320p (8k)</option>
+          </select>
+        </div>
+
+        <div class="options-container" id="Refrigerator/freezer">
+          <label for="refrigerator_type">Refrigerator/freezer type:</label>
+          <select class="option" name="refrigerator_type" id="ref">
+            <option value="bottom freezer">bottom freezer </option>
+            <option value="french door">french door </option>
+            <option value="side-by-side">side-by-side </option>
+            <option value="top freezer">top freezer  </option>
+            <option value="chest freezer">chest freezer </option>
+            <option value="upright freezer">upright freezer </option>
+          </select>
+          <br><br>
+        </div>
+
+        <div class="options-container"  id="Cooker">
+          <label for="">Oven:</label>
+          <input type="checkbox" id="oven" name="oven" value="oven">
+          <fieldset>      
+            <legend>Heat source:</legend>      
+            <input type="checkbox" name="gas" value="gas">Gas<br>      
+            <input type="checkbox" name="electric" value="electric">Electric<br>      
+            <input type="checkbox" name="microwave" value="microwave">Microwave<br>      
+            <br>         
+          </fieldset>   
+          <label for="">Type:</label>
+          <select class="option" name="oven_type" id="oven_type">
+            <option value="Convection">Convection </option>
+            <option value="Conventional">Conventional </option> 
+          </select>  
+          <br><br>
+          <label for="">Cooktop:</label>
+          <input type="checkbox" id="cooktop" name="cooktop" value="cooktop"><br>
+          <label for="">Heat source:</label>
+          <br>
+          <select class="option" name="cooktop_heatsource" id="cooktop_heatsource">
+            <option value="Gas">Gas </option>
+            <option value="Electric">Electric </option>
+            <option value="Radiant electric">Radiant electric </option> 
+            <option value="Induction">Induction </option> 
+          </select>
+        </div>
+
+        <div class="options-container"  id="Dryer">
+          <label for="">Heat source:</label>
+          <select class="option" name="dryer_heatsource" id="dryer_heatsource">
+            <option value="gas">gas</option>
+            <option value="electric">electric</option>
+            <option value="none">none</option>
+          </select>
+        </div>
+
+        <div class="options-container"  id="Washer">
+          <label for="">Loading type:</label>
+          <select class="option" name="washer_loadtype" id="washer_loadtype">
+            <option value="top">top</option>
+            <option value="front">front</option>
+          </select>
+        </div>
+
+      </fieldset>
+
+      <br>
+      <input type="submit" value="Add">
+    </form>
+
+  </main>
+
+
+
+
+  <script>
+    
+    const applianceType = document.getElementById("appliance-type");
+    // const applianceOptions=document.querySelectorAll(".appliance-type.option");
+ 
+    // var optionsArr = Array.from(document.getElementById("appliance-type").options).map(e => e.value);
+    var options = [];
+    for (var option of document.getElementById("appliance-type").options) {
+      options.push(option.value);
+    }
+
+    function show(value_) {
+      document.getElementById(value_).style.display = "block";
+
+      for (let i = 0; i < options.length; i++) {
+
+        if (options[i] && options[i] != value_) {
+          document.getElementById(options[i]).style.display = "none";
+        }
+      }
+      // selectedApp=applianceType.value;
+    }
+  </script>
+</body>
+
+</html>

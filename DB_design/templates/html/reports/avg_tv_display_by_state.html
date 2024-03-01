@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Avg TV Display</title>
+</head>
+<body>
+
+<style>
+tbody tr:nth-child(odd) {
+   background-color: #ccc;
+}
+a{
+margin: 0 20px;
+}
+</style>
+
+<h2>Average TV Display size by State.</h2>
+
+<div style="overflow-x: auto;">
+    {% if avg_tv_display_by_state|length > 1 %}
+    <table border="1" class="no-wrap">
+
+        <tr>
+            <th>State</th>
+            <th>Average TV Display Size</th>
+            <th>Drill Down Report</th>
+
+        </tr>
+        {% for row in avg_tv_display_by_state %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td><a href="{{ url_for('avg_tv_display_size_by_state_DrillDown', state=row[0]) }}">Drill Down</a></td>
+        </tr>
+    {% endfor %}
+    </table>
+    {% endif%}
+</div>
+
+<br>
+<div>
+    <a href="{{ url_for('view_reports') }}">All Reports</a>
+</div>
+
+
+</body>
+</html>

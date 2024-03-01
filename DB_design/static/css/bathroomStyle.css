@@ -1,0 +1,141 @@
+.sub,.add{
+        
+    cursor: pointer;
+    -moz-user-select: -moz-none;
+-khtml-user-select: none;
+-webkit-user-select: none;
+
+/*
+ Introduced in IE 10.
+ See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+*/
+-ms-user-select: none;
+user-select: none;
+}
+.quantity{
+    border:none;
+    border-right: 0.5px solid grey;
+    border-left: 0.5px solid grey;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:33.3%;
+    text-align: center;
+
+}
+
+.quantity::placeholder {
+text-align: center; 
+}
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+.select-amount {
+    /* padding: 20px 15px; */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    
+ flex-wrap: wrap;
+ 
+     }
+
+.select-amount>div {
+    height: 33.3%;
+    width: 250px;
+    margin: 0;
+    margin-right:30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+ }
+
+.select-amount>div>div {
+    width: 70px;
+    height: 30px;
+    border: 0.5px solid grey;
+    margin-left: 10px;
+    border-radius: 100px;
+    display: flex;
+    font-size: 1rem;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.select-amount>div>div>p {
+    width: 33.3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.divider {
+    height: 100%;
+    border-right: 0.5px solid grey;
+    border-left: 0.5px solid grey;
+    padding: 0 5px;
+}
+
+.select-amount>div>p {
+    margin-left: 10px;
+    margin-right: 30px;
+}
+
+
+form {
+    display: none;
+}
+
+
+
+fieldset {
+
+    border-style: solid;
+    border-color: black;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+         height: 300px;
+    position: relative;
+}
+
+.color-bar {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    background-color: #179aff;
+    height: 7px;
+    position: absolute;
+    top: -3px;
+    left: -2px;
+    right: -2px;
+    /* z-index: 93984273847234982783489287347982798438927398; */
+}
+
+
+.btn-container {
+    position: relative;
+    left: 10px;
+    top: 2px;
+}
+
+button {
+    width: 2.6rem;
+    background-color: rgb(255, 255, 255);
+    color: rgb(83, 78, 78);
+    border-radius: 0;
+    border: 0.5px solid rgb(83, 78, 78);
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(209, 209, 209);
+}
+
+
+body {
+    padding: 10px;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+<title>Web browser</title>
+</head>
+<body>
+
+<h3>Laundry Center Report</h3>
+
+
+<h4> <label for="cheese"> Report 1: Most common washer type and dryer heat source by state. </label><br/></h4>
+
+<table border="1">
+<tr>
+  <th> State </th>
+  <th> Washer type </th>
+  <th> Dryer heat source </th>
+</tr>
+{% for laundry in laundry1 %}
+<tr>
+<td>{{ laundry['state'] }}</td>
+<td>{{ laundry['loading_type'] }}</td>
+<td>{{ laundry['heat_source'] }}</td>
+</tr>
+{% endfor %}
+</table>
+
+<p>__________________________________________________________________________________________</p>
+
+<h4> <label for="cheese"> Report 2: Household count per state that has a washing machine, but 
+    does not have a dryer. </label><br/></h4>
+
+<table border="1">
+  <tr>
+    <th> State </th>
+    <th> Household count </th>
+  </tr>
+{% for laundry in laundry2 %}
+<tr>
+  <td>{{ laundry['state'] }}</td>
+  <td>{{ laundry['household_count'] }}</td>
+</tr>
+{% endfor %}
+</table>
+
+<br><br>
+<p align="left">
+<a href="{{url_for('view_reports')}}"><button>Back to reports</button></a>
+
+</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+<title>Web browser</title>
+</head>
+<body>
+
+<h3>Bathroom Statistics Report</h3>
+
+
+<ul>
+    <li>Bathroom count per household - Minimum : {{ bath[0][0] }}, Average: {{ bath[0][1] }}, Maximum: {{ bath[0][2] }}; </li>
+    <li>Half bathrooms count per household - Minimum : {{ halfbath[0][0] }}, Average: {{ halfbath[0][1] }}, Maximum: {{ halfbath[0][2] }};</li>
+    <li>Full bathrooms count per household - Minimum : {{ fullbath[0][0] }}, Average: {{ fullbath[0][1] }}, Maximum: {{ fullbath[0][2] }};</li>
+    <li>Commodes count per household - Minimum : {{ commodes[0][0] }}, Average: {{ commodes[0][1] }}, Maximum: {{ commodes[0][2] }}; </li>
+    <li>Sinks count per household - Minimum : {{ sinks[0][0] }}, Average: {{ sinks[0][1] }}, Maximum: {{ sinks[0][2] }};</li>
+    <li>Bidets count per household - Minimum : {{ bidets[0][0] }}, Average: {{ bidets[0][1] }}, Maximum: {{ bidets[0][2] }};</li>
+    <li>Bathtub count per household - Minimum : {{ bathtub[0][0] }}, Average: {{ bathtub[0][1] }}, Maximum: {{ bathtub[0][2] }}; </li>
+    <li>Shower count per household - Minimum : {{ shower[0][0] }}, Average: {{ shower[0][1] }}, Maximum: {{ shower[0][2] }};</li>
+    <li>Tub/shower count per household - Minimum : {{ tubshower[0][0] }}, Average: {{ tubshower[0][1] }}, Maximum: {{ tubshower[0][2] }};</li>
+    <li>The state that has the most bidets is {{ q10[0][0] }}, and the total count is {{ q10[0][1] }}</li>
+    <li>Postal code of {{ q11[0][0] }} has the most bidets, and the total count is {{ q11[0][1] }}</li>
+    <li>{{ q12[0][0] }} household have only a single, primary bathroom and no other bathroom</li>
+</ul>
+</ul>
+
+
+
+<br><br>
+<p align="left">
+<a href="{{url_for('view_reports')}}"><button>Back to reports</button></a>
+
+</p>
+</div>
+
+</body>
+</html>

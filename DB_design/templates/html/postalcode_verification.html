@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+   <img src="../static/images/graphic_getemail.jpg" alt="Girl in a jacket" width="535" height="60">
+
+<head>
+<title>Web browser</title>
+</head>
+<body>
+
+<h1>Enter household info</h1>
+<style>
+div {
+  height: 100px;
+  width: 500px;
+  }
+</style>
+<div>
+   <h2> <label for="cheese">You entered the following postal code:</label><br/></h2>
+   <h2> <label for="cheese"> Is this correct? </label><br/></h2>
+<p align="left">
+      {% if postalCode_from_db != None %}
+         <p>{{ postalCode_from_db[0][0] }}</p>
+         <p>{{ postalCode_from_db[0][1] }}, {{ postalCode_from_db[0][2] }}</p>
+      {% endif %}
+<form>
+   <input type="button"  onclick="window.location.href=' {{ url_for('phone_number') }}';" value="Yes"; />
+   <input type="button"  onclick="window.location.href=' {{ url_for('postal_code') }}';" value="No"; />
+
+</form>
+
+</p>
+
+</div>
+</body>
+</html>

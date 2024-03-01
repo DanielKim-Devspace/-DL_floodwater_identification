@@ -1,0 +1,72 @@
+insert into household (email, postal_code, home_type, square_footage,occupants,bedrooms)
+select email, postal_code, household_type, footage,num_occupants,bedroom_count
+from household_full;
+
+insert into phonenumber (area_code, "number", phone_type, email)
+select area_code, phone_number, phone_type, email
+from household_full
+where area_code is not null
+and phone_type is not null
+and phone_number is not null;
+
+insert into bathroom (email,bathroom_order,commodes,bidets,sinks)
+select household_email,bathroom_number,commode_count,bidet_count,sink_count
+from bathroom_full;
+
+insert into halfbathroom (email,bathroom_order,nonunique_name)
+select household_email,bathroom_number,bathroom_name
+from bathroom_full
+where tub_count is null
+and shower_count is null
+and tub_shower_count is null;
+
+insert into fullbathroom (email, bathroom_order, primary_bath, bathtub, shower, tubshower)
+select household_email, bathroom_number, primary_bathroom, tub_count, shower_count, tub_shower_count
+from bathroom_full
+where tub_count is not null
+and shower_count is not null
+and tub_shower_count is not null
+and primary_bathroom is not null;
+
+insert into appliance (email, appliance_order, manufacturer_name,model_name)
+select household_email, appliance_number, manufacturer_name, model
+from appliance_full;
+
+insert into tv (email,appliance_order,display_type,display_size,max_resolution)
+select household_email, appliance_number,display_type,display_size, resolution
+from appliance_full
+where display_type is not null
+and display_size is not null
+and resolution is not null;
+
+insert into dryer (email, appliance_order, heat_source)
+select household_email, appliance_number, dryer_heat_source
+from appliance_full
+where dryer_heat_source is not null;
+
+insert into washer (email, appliance_order, loading_type)
+select household_email, appliance_number, washer_load_type
+from appliance_full
+where washer_load_type is not null;
+
+insert into refrigeratorfreezer (email,appliance_order,refrigerator_type)
+select household_email, appliance_number, refrigerator_type
+from appliance_full
+where refrigerator_type is not null;
+
+insert into cooker (email,appliance_order)
+select household_email, appliance_number
+from appliance_full
+where cooktop_heat_source is not null
+or oven_heat_source is not null;
+
+insert into oven (email,appliance_order, heat_source,oven_type)
+select household_email, appliance_number,oven_heat_source,oven_type
+from appliance_full
+where oven_heat_source is not null;
+
+insert into cooktop (email,appliance_order, heat_source)
+select household_email, appliance_number,cooktop_heat_source
+from appliance_full
+where cooktop_heat_source is not null;
+

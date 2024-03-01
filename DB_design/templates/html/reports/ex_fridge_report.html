@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+<title>Web browser</title>
+</head>
+<body>
+
+<h2>Extra fridge/freezer Report</h2>
+
+<h3>Report 1 - Extra fridge/freezer household count</h3>
+<p> The count of all households with more than one fridge or freezer is: {{ ex1[0][0] }}</p>
+
+
+<h3>Report 2 - Top ten state extra fridge/freezer report</h3>
+
+
+<table border="1">
+    <tr>
+      <th> State </th>
+      <th> Household # w/ multi fridge/freezers </th>
+      <th> Chest freezer percentage </th>
+      <th> Upright freezer percentage </th>
+      <th> Other freezer percentage </th>
+    </tr>
+    {% for ex in ex2 %}
+    <tr>
+    <td>{{ ex[0] }}</td>
+    <td>{{ ex[1]  }}</td>
+    <td>{{ ex[2] }}</td>
+    <td>{{ ex[3] }}</td>
+    <td>{{ ex[4] }}</td>
+    </tr>
+    {% endfor %}
+    </table>
+<br><br>
+<p align="left">
+<a href="{{url_for('view_reports')}}"><button>Back to reports</button></a>
+</body>
+</html>

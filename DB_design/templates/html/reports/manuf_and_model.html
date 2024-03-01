@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Manufacturer/Model Search</title>
+</head>
+<body>
+<h2>Manufacturer/Model Search.</h2>
+<form method="POST">
+    <input type="text" name="searchText">
+    <div class="inputGroup">
+        <button type="submit"  onClick=""> Search </button>
+    </div>
+</form>
+{% if  text_to_search%}
+<div> <h3>Search Word: {{ text_to_search }} </h3></div>
+{% endif %}
+
+<div style="overflow-x: auto;">
+    {% if manuf_and_model != None %}
+    <table border="1" class="no-wrap">
+
+        <tr>
+            <th>Manufacturer</th>
+            <th>Model</th>
+        </tr>
+        {% for row in manuf_and_model %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1]}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    {% endif%}
+
+</div>
+<div>
+
+    <a href="{{ url_for('view_reports') }}">All Reports</a>
+
+</div>
+<!--<script>-->
+
+<!--window.addEventListener("load", function () {-->
+<!--  document.body.innerHTML = document.body.innerHTML.replaceAll(-->
+<!--    "{{text_to_search}}",-->
+<!--    "<mark>{{text_to_search}}</mark>"-->
+<!--  );-->
+<!--});-->
+
+<!--</script>-->
+
+</body>
+</html>

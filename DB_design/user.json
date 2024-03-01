@@ -1,0 +1,45 @@
+{
+    "email": "test2@gmail.com",
+    "postal_code": "78727",
+    "city": "Austin",
+    "state": "TX",
+    "phone": {
+        "area_code": null,
+        "number": null,
+        "phone_type": null
+    },
+    "home_type": "condominium",
+    "square_footage": "123",
+    "occupants": "1",
+    "bedrooms": "2",
+    "bathrooms": [
+        {
+            "bathroom_order": 1,
+            "sinks": 0,
+            "commodes": 1,
+            "bidets": 0,
+            "bathtubs": 0,
+            "showers": 1,
+            "tubs": 0,
+            "bathroom_type": "full",
+            "isPrimary": false,
+            "nonunique_name": "NULL"
+        }
+    ],
+    "household_appliances": [
+        {
+            "appliance_order": 1,
+            "appliance_type": "Cooker",
+            "manuf": "Adjubilex Holdings Corp.",
+            "model_name": "",
+            "cooker_type": [
+                "oven"
+            ],
+            "oven_heatsource": [
+                "electric"
+            ],
+            "oven_type": "Convection",
+            "cooktop_heatsource": "null"
+        }
+    ]
+}

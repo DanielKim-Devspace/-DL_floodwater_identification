@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+<title>Web browser</title>
+</head>
+<body>
+
+<h3>Household Averages by Radius Report</h3>
+
+
+
+<table border="1">
+  <tr>
+    <th>Search criterion/item</th>
+    <th>Results</th>
+  </tr>
+  <tr>
+    <td> User input postal code </td>
+    <td> {{ postcode }}</td>
+  </tr>
+  <tr>
+    <td> User input search radius </td>
+    <td> {{ radius }}</td>
+  </tr>
+  <tr>
+    <td> Average bathroom count </td>
+      {% if q1|length > 0 %}
+      <td>{{q1[0][0]}}</td>
+      {% else %}
+      <td> Not Available </td>
+      {% endif %}
+
+  </tr>
+  <tr>
+<tr>
+  <td> Average bedroom count </td>
+      {% if q2|length > 0 %}
+      <td>{{q2[0][0]}}</td>
+      {% else %}
+      <td> Not Available </td>
+      {% endif %}
+</tr>
+<tr>
+  <td> Average occupant count </td>
+      {% if q2|length > 0 %}
+      <td>{{q2[0][1]}}</td>
+      {% else %}
+      <td> Not Available </td>
+      {% endif %}
+</tr>
+<tr>
+  <td> Commodes to occupant ratio </td>
+      {% if q3|length > 0 %}
+      <td>1:{{q3[0][0]}}</td>
+      {% else %}
+      <td> Not Available </td>
+      {% endif %}
+</tr>
+<tr>
+  <td> Average number of appliances </td>
+      {% if q4|length > 0 %}
+      <td>{{q4[0][0]}}</td>
+      {% else %}
+      <td> Not Available </td>
+      {% endif %}
+</tr>
+<tr>
+  <td> Most common heat source </td>
+      {% if q5|length > 0 %}
+      <td>{{q5[0][0]}}</td>
+      {% else %}
+      <td> Not Available </td>
+      {% endif %}
+</tr>
+</table>
+
+
+<br><br>
+<p align="left">
+<a href="{{url_for('view_reports')}}"><button>Back to reports</button></a>
+
+</p>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
